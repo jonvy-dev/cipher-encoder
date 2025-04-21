@@ -59,7 +59,7 @@
   <label for="input">Enter English text:</label>
   <textarea id="input" placeholder="Type something...">HELLO WORLD</textarea>
 
-  <button onclick="translate()">Translate</button>
+  <button id="translateBtn">Translate</button>
 
   <h2>Translation:</h2>
   <div id="output" class="output"></div>
@@ -77,7 +77,6 @@
       I: "Y", II: "Z"
     };
 
-    // Flip the map so we can look up letters
     const reverseMap = {};
     for (const [pattern, letter] of Object.entries(cipherMap)) {
       reverseMap[letter] = pattern;
@@ -98,8 +97,7 @@
       document.getElementById("output").textContent = output.trim();
     }
 
-    // Run on page load
-    translate();
+    document.getElementById("translateBtn").addEventListener("click", translate);
   </script>
 </body>
 </html>
